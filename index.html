@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>II B&B Amici del Colle</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .slider-one {
+      max-width: 800px;
+      text-align: center;
+      margin-top: -500px !important;
+    }
+    .overlay-back {
+      background-color: rgba(0, 0, 0, 0.5);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .slider-one {
+        max-width: 800px;
+        text-align: center;
+        margin-top: -140px !important;
+      }
+      .slider-title {
+        font-size: 20px !important;
+      }
+      .slider-desc {
+        display: none;
+      }
+      .dropdown-toggle {
+        margin-top: 10px !important;
+      }
+      .cls-mail {
+        margin-left: 0px !important;
+        /*display: none;*/
+      }
+      .cls-phone {
+        margin-left: 0px !important;
+        /*display: none;*/
+      }
+      .cls-address {
+        margin-left: 0px !important;
+        /*display: none;*/
+      }
+      .slider-btn {
+        font-size: 12px !important;
+      }
+      .footer-logo {
+        text-align: center!important;
+      }
+      .img-mobile {
+        display: block !important;
+      }
+      .img-wind {
+        display: none!important;
+      }
+      .contact-section-menu {
+        display: none!important;
+      }
+
+      .lang-mobile {
+        display: block!important;
+      }
+      .lang-window {
+        display: none!important;
+      }
+
+
+    }
+
+  </style>
+</head>
+<script>
+  function changeTo(index) {
+    var img1 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAE2SURBVHjaYmSYyMDwgwEE/jEw/GF4mvT0HyqQUlX9B5aEIIAAYmH4wlDtWg1SDwT//0lKSv7/D+T9/w+nYmL+//79/88fIPll0yaAAGJhYAGJP/n69O+/v0CAUAcHt2////ULqJpRVhZoA0AAsQCtAZoMVP0HiP7+RlcNBEDVYA0Mv38DNQAEEMj8vwx//wCt/AdC/zEBkgagYoAAYgF6FGj277+///wlpAEoz8AAEEAgDX/BZv/69wuoB48GRrCTAAKICajh9//fv/6CVP/++wu7BrDxQFf/YWAACCCwk0BKf0MQdg1/gBqAPv0L9ANAALEAY+33vz+S3JIgb/z5C45CBkZGRgY4UFICKQUjoJMAAoiRoZSB4RMojkHx/YPhbNVZoM3AOISQQPUK9vaQOIYAgAADAC5Wd4RRwnKfAAAAAElFTkSuQmCC";
+    var img2 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAflJREFUeNpinDRzn5qN3uFDt16+YWBg+Pv339+KGN0rbVP+//2rW5tf0Hfy/2+mr99+yKpyOl3Ydt8njEWIn8f9zj639NC7j78eP//8739GVUUhNUNuhl8//ysKeZrJ/v7z10Zb2PTQTIY1XZO2Xmfad+f7XgkXxuUrVB6cjPVXef78JyMjA8PFuwyX7gAZj97+T2e9o3d4BWNp84K1NzubTjAB3fH0+fv6N3qP/ir9bW6ozNQCijB8/8zw/TuQ7r4/ndvN5mZgkpPXiis3Pv34+ZPh5t23//79Rwehof/9/NDEgMrOXHvJcrllgpoRN8PFOwy/fzP8+gUlgZI/f/5xcPj/69e/37//AUX+/mXRkN555gsOG2xt/5hZQMwF4r9///75++f3nz8nr75gSms82jfvQnT6zqvXPjC8e/srJQHo9P9fvwNtAHmG4f8zZ6dDc3bIyM2LTNlsbtfM9OPHH3FhtqUz3eXX9H+cOy9ZMB2o6t/Pn0DHMPz/b+2wXGTvPlPGFxdcD+mZyjP8+8MUE6sa7a/xo6Pykn1s4zdzIZ6///8zMGpKM2pKAB0jqy4UE7/msKat6Jw5mafrsxNtWZ6/fjvNLW29qv25pQd///n+5+/fxDDVbcc//P/zx/36m5Ub9zL8+7t66yEROcHK7q5bldMBAgwADcRBCuVLfoEAAAAASUVORK5CYII=";
+    if (index == 1)
+    {
+      $('#flagImg').attr('src', img1);
+      $('#langName').html('Italiano');
+      $('#flagImg1').attr('src', img1);
+      $('#langName1').html('Italiano');
+    }else{
+      $('#flagImg').attr('src', img2);
+      $('#langName').html('English');
+      $('#flagImg1').attr('src', img2);
+      $('#langName1').html('English');
+    }
+  }
+</script>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+<div class="site-wrap">
+
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <div class="top-bar py-3 bg-light" id="home-section">
+    <div class="container">
+      <div class="row align-items-center topbar-phone">
+        <div class="col-12 te">
+          <p class="mb-0 float-right">
+            <span class="mr-3 ml-5 cls-phone"><a href="tel:393288061850"> <span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-lg-inline-block text-black">+39 328 806 1850</span></a></span>
+            <span class="cls-mail"><a href="mailto:info@amicidelcolle.eu"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-lg-inline-block text-black">info@amicidelcolle.eu</span></a></span>
+            <span class="cls-address ml-3"><a href="javascript"><span class="icon-address-book mr-2" style="position: relative; top: 2px;"></span><span class="d-lg-inline-block text-black">Via Valsasino, 72, San Colombano al Lambro</span></a></span>
+            <div class="dropdown text-left mt-1 ml-2 lang-window">
+              <a href="javascript:;" class="btn btn-outline-dark btn-dark dropdown-toggle" data-toggle="dropdown">
+                <img id="flagImg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAE2SURBVHjaYmSYyMDwgwEE/jEw/GF4mvT0HyqQUlX9B5aEIIAAYmH4wlDtWg1SDwT//0lKSv7/D+T9/w+nYmL+//79/88fIPll0yaAAGJhYAGJP/n69O+/v0CAUAcHt2////ULqJpRVhZoA0AAsQCtAZoMVP0HiP7+RlcNBEDVYA0Mv38DNQAEEMj8vwx//wCt/AdC/zEBkgagYoAAYgF6FGj277+///wlpAEoz8AAEEAgDX/BZv/69wuoB48GRrCTAAKICajh9//fv/6CVP/++wu7BrDxQFf/YWAACCCwk0BKf0MQdg1/gBqAPv0L9ANAALEAY+33vz+S3JIgb/z5C45CBkZGRgY4UFICKQUjoJMAAoiRoZSB4RMojkHx/YPhbNVZoM3AOISQQPUK9vaQOIYAgAADAC5Wd4RRwnKfAAAAAElFTkSuQmCC" title="Italiano" alt="Italiano" />
+                <span id="langName" style="margin-left:0.3em;">Italiano</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="javascript:;" onclick="changeTo(1)" class="dropdown-item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAE2SURBVHjaYmSYyMDwgwEE/jEw/GF4mvT0HyqQUlX9B5aEIIAAYmH4wlDtWg1SDwT//0lKSv7/D+T9/w+nYmL+//79/88fIPll0yaAAGJhYAGJP/n69O+/v0CAUAcHt2////ULqJpRVhZoA0AAsQCtAZoMVP0HiP7+RlcNBEDVYA0Mv38DNQAEEMj8vwx//wCt/AdC/zEBkgagYoAAYgF6FGj277+///wlpAEoz8AAEEAgDX/BZv/69wuoB48GRrCTAAKICajh9//fv/6CVP/++wu7BrDxQFf/YWAACCCwk0BKf0MQdg1/gBqAPv0L9ANAALEAY+33vz+S3JIgb/z5C45CBkZGRgY4UFICKQUjoJMAAoiRoZSB4RMojkHx/YPhbNVZoM3AOISQQPUK9vaQOIYAgAADAC5Wd4RRwnKfAAAAAElFTkSuQmCC" title="Italiano" alt="Italiano" /><span style="margin-left:0.3em;">Italiano</span></a>
+                <a href="javascript:;" onclick="changeTo(2)" class="dropdown-item" hreflang="en-GB" lang="en-GB"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAflJREFUeNpinDRzn5qN3uFDt16+YWBg+Pv339+KGN0rbVP+//2rW5tf0Hfy/2+mr99+yKpyOl3Ydt8njEWIn8f9zj639NC7j78eP//8739GVUUhNUNuhl8//ysKeZrJ/v7z10Zb2PTQTIY1XZO2Xmfad+f7XgkXxuUrVB6cjPVXef78JyMjA8PFuwyX7gAZj97+T2e9o3d4BWNp84K1NzubTjAB3fH0+fv6N3qP/ir9bW6ozNQCijB8/8zw/TuQ7r4/ndvN5mZgkpPXiis3Pv34+ZPh5t23//79Rwehof/9/NDEgMrOXHvJcrllgpoRN8PFOwy/fzP8+gUlgZI/f/5xcPj/69e/37//AUX+/mXRkN555gsOG2xt/5hZQMwF4r9///75++f3nz8nr75gSms82jfvQnT6zqvXPjC8e/srJQHo9P9fvwNtAHmG4f8zZ6dDc3bIyM2LTNlsbtfM9OPHH3FhtqUz3eXX9H+cOy9ZMB2o6t/Pn0DHMPz/b+2wXGTvPlPGFxdcD+mZyjP8+8MUE6sa7a/xo6Pykn1s4zdzIZ6///8zMGpKM2pKAB0jqy4UE7/msKat6Jw5mafrsxNtWZ6/fjvNLW29qv25pQd///n+5+/fxDDVbcc//P/zx/36m5Ub9zL8+7t66yEROcHK7q5bldMBAgwADcRBCuVLfoEAAAAASUVORK5CYII=" title="English" alt="English" /><span style="margin-left:0.3em;">English</span></a>
+              </div>
+            </div>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner" style="padding-top: 15px !important; padding-bottom: 0px !important;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-11 text-center img-mobile" style="display: none">
+          <img class="" width="70" height="70" src="images/logo/logo.jpg" class="custom-logo" alt="" itemprop="logo">
+        </div>
+        <div class="col-6 col-xl-2 img-wind">
+          <h1 class="mb-0 site-logo">
+            <a href="index.html" class="text-black mb-0">
+              <img width="70" height="70" src="images/logo/logo.jpg" class="custom-logo" alt="" itemprop="logo">
+            </a>
+          </h1>
+        </div>
+        <div class="col-12 col-md-10 d-none d-xl-block">
+          <nav class="site-navigation position-relative text-right" role="navigation">
+            <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+              <li><a href="#home-section" class="nav-link">Home</a></li>
+              <li><a href="#About-US" class="nav-link">About US</a></li>
+              <li><a href="#Room" class="nav-link">Room</a></li>
+              <li><a href="#Service" class="nav-link">Service</a></li>
+              <li><a href="#Interesting-Point" class="nav-link">Interesting Point</a></li>
+              <li><a href="#Social-Link" class="nav-link">Social Link</a></li>
+              <li class="contact-section-menu"><a href="#contact-section" class="nav-link">Contact</a></li>
+              <li class="lang-mobile" style="display: none;">
+                <div class="dropdown text-left mt-1 ml-2">
+                  <a href="javascript:;" class="btn btn-outline-dark btn-dark dropdown-toggle" data-toggle="dropdown">
+                    <img id="flagImg1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAE2SURBVHjaYmSYyMDwgwEE/jEw/GF4mvT0HyqQUlX9B5aEIIAAYmH4wlDtWg1SDwT//0lKSv7/D+T9/w+nYmL+//79/88fIPll0yaAAGJhYAGJP/n69O+/v0CAUAcHt2////ULqJpRVhZoA0AAsQCtAZoMVP0HiP7+RlcNBEDVYA0Mv38DNQAEEMj8vwx//wCt/AdC/zEBkgagYoAAYgF6FGj277+///wlpAEoz8AAEEAgDX/BZv/69wuoB48GRrCTAAKICajh9//fv/6CVP/++wu7BrDxQFf/YWAACCCwk0BKf0MQdg1/gBqAPv0L9ANAALEAY+33vz+S3JIgb/z5C45CBkZGRgY4UFICKQUjoJMAAoiRoZSB4RMojkHx/YPhbNVZoM3AOISQQPUK9vaQOIYAgAADAC5Wd4RRwnKfAAAAAElFTkSuQmCC" title="Italiano" alt="Italiano" />
+                    <span id="langName1" style="margin-left:0.3em;">Italiano</span>
+                  </a>
+                  <div class="dropdown-menu">
+                    <a href="javascript:;" onclick="changeTo(1)" class="dropdown-item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAE2SURBVHjaYmSYyMDwgwEE/jEw/GF4mvT0HyqQUlX9B5aEIIAAYmH4wlDtWg1SDwT//0lKSv7/D+T9/w+nYmL+//79/88fIPll0yaAAGJhYAGJP/n69O+/v0CAUAcHt2////ULqJpRVhZoA0AAsQCtAZoMVP0HiP7+RlcNBEDVYA0Mv38DNQAEEMj8vwx//wCt/AdC/zEBkgagYoAAYgF6FGj277+///wlpAEoz8AAEEAgDX/BZv/69wuoB48GRrCTAAKICajh9//fv/6CVP/++wu7BrDxQFf/YWAACCCwk0BKf0MQdg1/gBqAPv0L9ANAALEAY+33vz+S3JIgb/z5C45CBkZGRgY4UFICKQUjoJMAAoiRoZSB4RMojkHx/YPhbNVZoM3AOISQQPUK9vaQOIYAgAADAC5Wd4RRwnKfAAAAAElFTkSuQmCC" title="Italiano" alt="Italiano" /><span style="margin-left:0.3em;">Italiano</span></a>
+                    <a href="javascript:;" onclick="changeTo(2)" class="dropdown-item" hreflang="en-GB" lang="en-GB"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAflJREFUeNpinDRzn5qN3uFDt16+YWBg+Pv339+KGN0rbVP+//2rW5tf0Hfy/2+mr99+yKpyOl3Ydt8njEWIn8f9zj639NC7j78eP//8739GVUUhNUNuhl8//ysKeZrJ/v7z10Zb2PTQTIY1XZO2Xmfad+f7XgkXxuUrVB6cjPVXef78JyMjA8PFuwyX7gAZj97+T2e9o3d4BWNp84K1NzubTjAB3fH0+fv6N3qP/ir9bW6ozNQCijB8/8zw/TuQ7r4/ndvN5mZgkpPXiis3Pv34+ZPh5t23//79Rwehof/9/NDEgMrOXHvJcrllgpoRN8PFOwy/fzP8+gUlgZI/f/5xcPj/69e/37//AUX+/mXRkN555gsOG2xt/5hZQMwF4r9///75++f3nz8nr75gSms82jfvQnT6zqvXPjC8e/srJQHo9P9fvwNtAHmG4f8zZ6dDc3bIyM2LTNlsbtfM9OPHH3FhtqUz3eXX9H+cOy9ZMB2o6t/Pn0DHMPz/b+2wXGTvPlPGFxdcD+mZyjP8+8MUE6sa7a/xo6Pykn1s4zdzIZ6///8zMGpKM2pKAB0jqy4UE7/msKat6Jw5mafrsxNtWZ6/fjvNLW29qv25pQd///n+5+/fxDDVbcc//P/zx/36m5Ub9zL8+7t66yEROcHK7q5bldMBAgwADcRBCuVLfoEAAAAASUVORK5CYII=" title="English" alt="English" /><span style="margin-left:0.3em;">English</span></a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col-1 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
+      </div>
+    </div>
+  </header>
+  <div class="overlay" data-aos="fade" style="margin-top: 80px;">
+    <div class="slide-one-item home-slider owl-carousel">
+      <div>
+        <img src="images/home/1.jpg" width="100%" height="100%" style="width: 100%; height: 100%;">
+<!--        <div class="overlay-back"></div>-->
+<!--        <div class="slider-one" style="min-width: 100%; position: absolute;">-->
+<!--          <figure class="mb-4 d-block align-items-center justify-content-center">-->
+<!--            <p class="text-white font-weight-bold slider-title" style="font-size: 40px;">WELCOME ON B&B Amici del Colle</p>-->
+<!--            <p class="text-white font-weight-normal slider-desc" style="font-size: 27px;">CALL NOW TO RESERVE YOUR ROOM AT DREAM</p>-->
+<!--          </figure>-->
+<!--          <a href="tel:+393474465259" class="btn btn-white btn-outline-white font-weight-normal slider-btn" style="font-size: 25px;">CALL US</a>-->
+<!--        </div>-->
+      </div>
+      <div>
+        <img src="images/home/2.jpg" width="100%" height="100%" style="width: 100%; height: 100%;">
+<!--        <div class="overlay-back"></div>-->
+<!--        <div class="slider-one" style="min-width: 100%; position: absolute;">-->
+<!--          <figure class="mb-4 d-block align-items-center justify-content-center">-->
+<!--            <p class="text-white font-weight-bold slider-title" style="font-size: 40px;">THE DREAM OF A PERFECT HOLIDAY</p>-->
+<!--            <p class="text-white font-weight-normal slider-desc" style="font-size: 27px;">WRITE FOR ANY REQUEST OR INFORMATION! DO NOT STOP YOUR DREAMS!</p>-->
+<!--          </figure>-->
+<!--          <a href="mailto:villavolli@gmail.com" class="btn btn-white btn-outline-white font-weight-normal slider-btn" style="font-size: 25px;">WRITE US</a>-->
+<!--        </div>-->
+      </div>
+      <div>
+        <img src="images/home/3.jpg" width="100%" height="100%" style="width: 100%; height: 100%;">
+<!--        <div class="overlay-back"></div>-->
+<!--        <div class="slider-one" style="min-width: 100%; position: absolute;">-->
+<!--          <figure class="mb-4 d-block align-items-center justify-content-center">-->
+<!--            <p class="text-white font-weight-bold slider-title" style="font-size: 40px;">THE DREAM OF A PERFECT HOLIDAY</p>-->
+<!--            <p class="text-white font-weight-normal slider-desc" style="font-size: 27px;">WRITE FOR ANY REQUEST OR INFORMATION! DO NOT STOP YOUR DREAMS!</p>-->
+<!--          </figure>-->
+<!--          <a href="mailto:villavolli@gmail.com" class="btn btn-white btn-outline-white font-weight-normal slider-btn" style="font-size: 25px;">WRITE US</a>-->
+<!--        </div>-->
+      </div>
+      <div>
+        <img src="images/home/4.jpg" width="100%" height="100%" style="width: 100%; height: 100%;">
+<!--        <div class="overlay-back"></div>-->
+<!--        <div class="slider-one" style="min-width: 100%; position: absolute;">-->
+<!--          <figure class="mb-4 d-block align-items-center justify-content-center">-->
+<!--            <p class="text-white font-weight-bold slider-title" style="font-size: 40px;">THE DREAM OF A PERFECT HOLIDAY</p>-->
+<!--            <p class="text-white font-weight-normal slider-desc" style="font-size: 27px;">WRITE FOR ANY REQUEST OR INFORMATION! DO NOT STOP YOUR DREAMS!</p>-->
+<!--          </figure>-->
+<!--          <a href="mailto:villavolli@gmail.com" class="btn btn-white btn-outline-white font-weight-normal slider-btn" style="font-size: 25px;">WRITE US</a>-->
+<!--        </div>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section" id="About-US">
+    <div class="container">
+      <div class="row align-items-lg-center">
+        <div class="col-12 text-center">
+        <h2 class="section-title mb-3">About Us</h2>
+      </div>
+      </div>
+      <div class="row align-items-lg-center">
+        <div class="col-md-7 mb-4 mb-lg-0">
+          <!--          <img src="images/contact-home.jpg" width="100%" class="img-fluid" alt="Image">-->
+<!--          <video width="100%" height="100%" controls>-->
+<!--            <source src="https://www.youtube.com/watch?v=EjWEcM-V40M" type="video/ogg">-->
+<!--          </video>-->
+<!--          <iframe width="100%" height="100%"-->
+<!--                  src="https://www.youtube.com/embed/tgbNymZ7vqY">-->
+<!--          </iframe>-->
+<!--          <object data="http://www.youtube.com/embed/EjWEcM-V40M"-->
+<!--                  width="560" height="315"></object>-->
+          <iframe width="100%" height="100%" src="http://www.youtube.com/embed/EjWEcM-V40M" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-5 ml-auto">
+          <p class="mb-4">
+            Il B&B Amici del Colle nasce quattro anni fa come prima struttura ricettiva nel nostro borgo.
+
+            Il B&B Amici del Colle è una dimora di famiglia, ristrutturata completamente nel 2013, indipendente, composta da due camere con bagni privati e un ampio spazio salotto con cucina completamente attrezzata, dove poter consumare la prima colazione, ed è dotato di posto auto e bici.
+
+            Il nostro B&B ha un’anima particolare, avvolto dal calore del legno, materiale utilizzato anche per la creazione di comodini e mensole artigianali. Siamo molto attenti alla sostenibilità ambientale e offriamo ai nostri ospiti prodotti per il bagno di origine naturale. Inoltre ogni camera e ogni angolo del nostro B&B è decorato con massime... tutte da scoprire!
+          </p>
+        </div>
+      </div>
+      <!--      <div class="row align-items-lg-center mt-4">-->
+      <!--        <div class="col-md-12">-->
+      <!--          <video width="100%" height="100%" controls>-->
+      <!--            <source src="https://www.youtube.com/watch?v=EjWEcM-V40M" type="video/ogg">-->
+      <!--          </video>-->
+      <!--        </div>-->
+      <!--      </div>-->
+    </div>
+
+    <div class="site-section testimonial-wrap" id="Room">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h3 class="section-sub-title">The Choice Hasn't Never Been so Difficult</h3>
+            <h2 class="section-title mb-3">THE ROOMS</h2>
+          </div>
+        </div>
+      </div>
+      <div class="slide-one-item home-slider owl-carousel">
+        <div>
+          <div class="testimonial">
+            <figure class="mb-4 d-block align-items-center justify-content-center">
+              <div><img src="images/rooms/1.jpg" alt="Image" class="w-100 img-fluid mb-3" width="100%" height="100%"></div>
+            </figure>
+            <blockquote class="mb-3">
+              <p style="font-size: 15px;"><strong>Low Season:</strong> € 60/night<br>
+                <strong>Medium-Low Season:</strong> € 65-70/night<br>
+                <strong>Medium-High Season:</strong> € 80-90/night<br>
+                <strong>High Season:</strong> € 100/night<br>
+                <strong>Double for single use:</strong> discount of 10%/night<br>
+                (The prices are breakfast and taxes included)</p>
+            </blockquote>
+            <!--            <p class="text-black"><strong>John Smith</strong></p>-->
+          </div>
+        </div>
+        <div>
+          <div class="testimonial">
+            <figure class="mb-4 d-block align-items-center justify-content-center">
+              <div><img src="images/rooms/2.jpg" alt="Image" class="w-100 img-fluid mb-3" width="100%" height="100%"></div>
+            </figure>
+            <blockquote class="mb-3">
+              <p style="font-size: 15px;"><strong>Low Season:</strong> € 60/night<br>
+                <strong>Medium-Low Season:</strong> € 65-70/night<br>
+                <strong>Medium-High Season:</strong> € 80-90/night<br>
+                <strong>High Season:</strong> € 100/night<br>
+                <strong>Double for single use:</strong> discount of 10%/night<br>
+                (The prices are breakfast and taxes included)</p>
+            </blockquote>
+            <!--            <p class="text-black"><strong>Robert Aguilar</strong></p>-->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="site-section bg-light" id="Service">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h3 class="section-sub-title">Our Services</h3>
+            <h2 class="section-title mb-3">We Offer Services</h2>
+          </div>
+        </div>
+        <div class="row align-items-stretch">
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4"><span class="text-primary icon-wifi"></span></div>
+              <div>
+                <h3>WIFI</h3>
+                <p>Wi-Fi in every room for leisure, work or need any kind.</p>
+                <!--                <p><a href="#">Learn More</a></p>-->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4"><span class="text-primary icon-center_focus_strong"></span></div>
+              <div>
+                <h3>IN CENTER</h3>
+                <p>Extreme proximity to the sea, just two steps to be already on the beach.</p>
+                <!--                <p><a href="#">Learn More</a></p>-->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4"><span class="text-primary icon-kitchen"></span></div>
+              <div>
+                <h3>KITCHEN</h3>
+                <p>Completely new rooms with great beds to sleep in peace.</p>
+                <!--                <p><a href="#">Learn More</a></p>-->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-flex">
+              <div class="unit-4-icon mr-4"><span class="text-primary icon-pets"></span></div>
+              <div>
+                <h3>DOG FRIENDLY</h3>
+                <p>
+                  High class Breakfast included in any room booked.
+                </p>
+                <!--                <p><a href="#">Learn More</a></p>-->
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section testimonial-wrap" id="Interesting-Point">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3">Interesting Points</h2>
+          </div>
+        </div>
+      </div>
+      <div class="slide-one-item home-slider owl-carousel">
+        <div>
+          <div class="testimonial">
+            <figure class="mb-4 d-block align-items-center justify-content-center">
+              <div><img src="http://www.villavolli.com/wp-content/uploads/2017/03/Garden-05.jpg" alt="Image" class="w-100 img-fluid mb-3" width="100%" height="100%"></div>
+            </figure>
+            <blockquote class="mb-3">
+              <p>Milano Mongolfiere
+                Circuito internazionale “Le Colline”
+                Terme di Miradolo
+                Castello di San Colombano al Lambro</p>
+            </blockquote>
+            <!--            <p class="text-black"><strong>John Smith</strong></p>-->
+          </div>
+        </div>
+        <div>
+          <div class="testimonial">
+            <figure class="mb-4 d-block align-items-center justify-content-center">
+              <div><img src="http://www.villavolli.com/wp-content/uploads/2017/03/Garden-08.jpg" alt="Image" class="w-100 img-fluid mb-3" width="100%" height="100%"></div>
+            </figure>
+            <blockquote class="mb-3">
+              <p>Milano Mongolfiere
+                Circuito internazionale “Le Colline”
+                Terme di Miradolo
+                Castello di San Colombano al Lambro</p>
+            </blockquote>
+            <!--            <p class="text-black"><strong>Robert Aguilar</strong></p>-->
+          </div>
+        </div>
+        <div>
+          <div class="testimonial">
+            <figure class="mb-4 d-block align-items-center justify-content-center">
+              <div><img src="http://www.villavolli.com/wp-content/uploads/2017/03/Garden-12.jpg" alt="Image" class="w-100 img-fluid mb-3" width="100%" height="100%"></div>
+            </figure>
+            <blockquote class="mb-3">
+              <p>Milano Mongolfiere
+                Circuito internazionale “Le Colline”
+                Terme di Miradolo
+                Castello di San Colombano al Lambro</p>
+            </blockquote>
+            <!--            <p class="text-black"><strong>Robert Aguilar</strong></p>-->
+          </div>
+        </div>
+        <div>
+          <div class="testimonial">
+            <figure class="mb-4 d-block align-items-center justify-content-center">
+              <div><img src="http://www.villavolli.com/wp-content/uploads/2017/03/Garden-08.jpg" alt="Image" class="w-100 img-fluid mb-3" width="100%" height="100%"></div>
+            </figure>
+            <blockquote class="mb-3">
+              <p>Milano Mongolfiere
+                Circuito internazionale “Le Colline”
+                Terme di Miradolo
+                Castello di San Colombano al Lambro</p>
+            </blockquote>
+            <!--            <p class="text-black"><strong>Robert Aguilar</strong></p>-->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="site-section bg-light" id="Social-Link">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3">FOLLOW US ON SOCIAL</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center">
+            <a href="javascript:;" class="btn btn-primary btn-outline-primary font-weight-normal slider-btn" style="font-size: 35px;">
+              <span class="icon-facebook"></span>
+            </a>
+            <a href="javascript:;" class="btn btn-primary btn-outline-primary font-weight-normal slider-btn ml-4" style="font-size: 35px;">
+              <span class="icon-instagram"></span>
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-items-lg-center">
+<!--            <div class="" style="width: 270px !important; height: 350px !important; margin-left: calc(calc(90vw - 270px) / 2);">-->
+<!--              <script src="https://apps.elfsight.com/p/platform.js" defer></script>-->
+<!--              <div class="elfsight-app-ba69f755-c599-46d8-b274-decfc8f6f494" style="width: 270px !important; height: 350px !important;"></div>-->
+<!--            </div>-->
+            <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/ce35fe0821bd5839b80ec790451d7b49.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section bg-light" id="contact-section">
+      <div class="container bg-white">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3">Contact</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-7 mb-5">
+            <div id="googleMap" style="width: 100%; height: 100%; min-height: 400px"></div>
+          </div>
+          <div class="col-md-5 mb-5">
+            <form action="#" class="p-5 bg-white">
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">First Name</label>
+                  <input type="text" id="fname" class="form-control rounded-0">
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black" for="lname">Last Name</label>
+                  <input type="text" id="lname" class="form-control rounded-0">
+                </div>
+              </div>
+
+              <div class="row form-group">
+
+                <div class="col-md-12">
+                  <label class="text-black" for="address">Address</label>
+                  <input type="text" id="address" class="form-control rounded-0">
+                </div>
+              </div>
+
+              <div class="row form-group">
+
+                <div class="col-md-12">
+                  <label class="text-black" for="telephone">Telephone</label>
+                  <input type="text" id="telephone" class="form-control rounded-0">
+                </div>
+              </div>
+
+              <div class="row form-group">
+
+                <div class="col-md-12">
+                  <label class="text-black" for="email">Email</label>
+                  <input type="email" id="email" class="form-control rounded-0">
+                </div>
+              </div>
+
+              <div class="row form-group">
+
+                <div class="col-md-12">
+                  <label class="text-black" for="subject">Subject</label>
+                  <input type="subject" id="subject" class="form-control rounded-0">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="message">Message</label>
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control rounded-0" placeholder="Write your notes or questions here..."></textarea>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Send Message" class="btn btn-black rounded-0 py-3 px-4">
+                </div>
+              </div>
+
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer bg-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-4 ml-auto footer-logo">
+                <img src="images/logo/logo.jpg" width="70px" height="70px">
+                <p class="text-dark mt-4 font-weight-normal">Amici del Colle is a B&B near the sea in Agrigento, the right choose for your dream holiday!</p>
+              </div>
+              <div class="col-md-4 ml-auto">
+                <h2 class="footer-heading mt-4 text-dark font-weight-normal">Important Links</h2>
+                <ul class="list-unstyled mt-4" >
+                  <li><a class="text-dark font-weight-normal" href="#home-section">Home</a></li>
+                  <li><a class="text-dark font-weight-normal" href="#contact-section">Contact</a></li>
+                </ul>
+              </div>
+              <div class="col-md-4 text-center ml-auto">
+                <img src="images/booking%20reward/social_media.png" width="120px" height="120px">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-1 mt-1 text-center">
+          <div class="col-md-12">
+            <div class="border-top pt-3">
+              <p>
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Site made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://freelancer.com" target="_blank" >Zaiju</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div> <!-- .site-wrap -->
+
+  <a id="backtotop" href="#top">
+    <span class="icon-arrow-circle-o-up" style="font-size: 40px;"></span>
+  </a>
+  <script>
+    function myMap() {
+      var mapProp= {
+        center:new google.maps.LatLng(45.1798068,9.4941066),
+        zoom:17,
+      };
+      var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+      var mark = new google.maps.Marker({position:{lat:45.1798068, lng:9.4941066}, map:map});
+    }
+  </script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=&callback=myMap"></script>
+  <script src="js/jquery.backtotop.js"></script>
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>
+
+<script>
+  jQuery(document).ready(function($) {
+    function reportWindowSize() {
+
+      var height = $('.carousel-item-container').height();
+      var subHeight = $('.testimonial').height();
+      var style = -height + 'px !important';
+      // $('.slider-image').css('height', height + 'px');
+      $('.slider-one').css('margin-top', style);
+      console.log(style);
+    }
+    // window.onresize = reportWindowSize;
+    reportWindowSize();
+
+  })
+</script>
